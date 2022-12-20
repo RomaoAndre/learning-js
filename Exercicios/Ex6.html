@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <title>Calculadora IMC</title>
+</head>
+<style>
+body{
+    background-color: gray;
+}
+label{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#resultado,#classificacao{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    font-weight: bold;
+    color: rgb(61, 61, 61);;
+}
+
+
+h1{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 25px;
+}
+.card{
+    background-color: white;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    font-family: 'Heebo', sans-serif;
+}
+.botao{
+    margin-top: 20px;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(61, 61, 61);
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    color: #ffffff;
+}
+.botao:hover{
+    background-color: rgb(46, 46, 46);
+}
+
+input[type="number"]{
+    margin-top: 20px;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 3px 0px rgb(146, 146, 146);
+    height: 30px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+        <h1>Calcule seu IMC</h1>
+        <input type="number" id="altura" placeholder="Altura">
+        <input type="number" id="peso" placeholder="Peso">
+        <input type="button" class="botao" value="Calcular" onclick="calculaIMC()">
+        <label>IMC</label>
+        <div id="resultado">
+        </div>
+        <label>CLASSIFICAÇÃO</label>
+        <div id="classificacao">
+        </div>
+    </div>
+</div>
+    <script>
+        function calculaIMC(){
+            //Pega o valor dos inputs (.value pega o valor)
+            var altura = document.getElementById("altura").value;
+            var peso = document.getElementById("peso").value;
+            //(toFixed(Formata apenas com 2 caracteres depois da virgula)
+            var resultado = (peso / (altura * altura)).toFixed(2);
+            //Mostra o resultado na DIV
+            document.getElementById("resultado").innerHTML = resultado + "</strong>";
+            
+            if (resultado < 18.5) {
+                document.getElementById("classificacao").innerHTML = "Magreza";
+            }
+            else if ((resultado >= 18.5 && resultado <= 24.9)) {
+                document.getElementById("classificacao").innerHTML = "Normal";
+            }
+            else if ((resultado >= 25.0 && resultado <= 29.9)) {
+                document.getElementById("classificacao").innerHTML = "Sobrepeso";
+            }
+            else if ((resultado >= 30.0 && resultado <= 39.9)) {
+                document.getElementById("classificacao").innerHTML = "Obesidade";
+            }
+            else{
+                document.getElementById("classificacao").innerHTML = "Obesidade grave";
+            }
+        }
+    </script>
+</body>
+</html>

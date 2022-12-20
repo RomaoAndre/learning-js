@@ -1,0 +1,14 @@
+<script>
+function random(){
+
+    numeroPensado = Math.round(Math.random() * 10);
+    numeroAdvinha = parseInt(prompt("Adivinhe o número"))
+
+    if (numeroAdvinha == numeroPensado){
+        document.write("Você acertou!")
+    }else{
+        document.write("Você errou, o número era " + numeroPensado);
+    }
+}
+random();
+</script>

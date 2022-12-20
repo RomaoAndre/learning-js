@@ -1,0 +1,53 @@
+<input/>
+<button>Adivinhar</button>
+
+<script>
+
+//ARRAY(LISTAS)
+var numerosAleatorios = [5, 8, 3];
+var input = document.querySelector("input")
+input.focus();
+
+function verifica(){
+
+    var acertou = false;
+
+    for(var posicao = 0; posicao < numerosAleatorios.length; posicao ++){
+        if(input.value == numerosAleatorios[posicao]) {
+            alert("Você ACERTOU!")
+            acertou = true;
+            break;
+        }
+    }
+        if(acertou == false) {
+            alert("Você ERROU!");
+        }
+    
+    //USANDO IF
+    // if(input.value == numerosAleatorios[0]){
+    //     alert("Você ACERTOU")
+    // }
+    // else{
+    //     alert("Você ERROU, o numero era " + numerosAleatorios[0])
+    // }
+    // if(input.value == numerosAleatorios[1]){
+    //     alert("Você ACERTOU")
+    // }
+    // else{
+    //     alert("Você ERROU, o numero era " + numerosAleatorios[1])
+    // }
+    // if(input.value == numerosAleatorios[2]){
+    //     alert("Você ACERTOU")
+    // }
+    // else{
+    //     alert("Você ERROU, o numero era " + numerosAleatorios[2])
+    // }
+    input.value = ""
+    input.focus();
+}
+
+//MESMA FUNÇÃO DO ONCLICK DIRETO NO BUTTON
+var button = document.querySelector("button")
+button.onclick = verifica
+
+</script>
